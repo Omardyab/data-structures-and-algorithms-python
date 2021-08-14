@@ -135,3 +135,67 @@ def test_dequeue_raise_exception():
     with pytest.raises(Exception, match="empty queue dequeuing "):
         queue.dequeue()
 
+"""
+------------------------------------------
+        code ch 12 tests
+------------------------------------------
+"""
+from code_challenges.stack_queue_animal_shelter.stack_queue_animal_shelter import *
+
+
+def test_animal_shelter_enqueue_dog():
+    animal_queue = AnimalShelter()
+    assert animal_queue.enqueue(Dog("Husky")) == "your animal is now added to the shelter"
+
+
+def test_animal_shelter_enqueue_cat():
+    animal_queue = AnimalShelter()
+    assert animal_queue.enqueue(Cat("Lucy")) == "your animal is now added to the shelter"
+
+def test_animal_shelter_dequeue_catanddog():
+    animal_queue = AnimalShelter()
+    animal_queue.enqueue(Cat('Lucy'))
+    animal_queue.enqueue(Dog('Husky'))
+    animal_queue.enqueue(Dog('Tiger'))
+    animal_queue.enqueue(Cat('Kitty'))
+    assert animal_queue.dequeue('cat')=="Lucy"
+    assert animal_queue.dequeue('dog')=="Husky"
+    assert str(animal_queue)==f"[Tiger] <= [Kitty] <= None"
+
+def test_animal_shelter_dequeue_allcats():
+    animal_queue = AnimalShelter()
+    animal_queue.enqueue(Cat('Lucy'))
+    animal_queue.enqueue(Dog('Husky'))
+    animal_queue.enqueue(Dog('Tiger'))
+    animal_queue.enqueue(Cat('Kitty'))
+    assert animal_queue.dequeue('cat')=="Lucy"
+    assert animal_queue.dequeue('cat')=="Kitty"
+    assert str(animal_queue)==f"[Husky] <= [Tiger] <= None"
+
+
+def test_animal_shelter_dequeue_alldogs():
+    animal_queue = AnimalShelter()
+    animal_queue.enqueue(Cat('Lucy'))
+    animal_queue.enqueue(Dog('Husky'))
+    animal_queue.enqueue(Dog('Tiger'))
+    animal_queue.enqueue(Cat('Kitty'))
+    assert animal_queue.dequeue('dog')=="Husky"
+    assert animal_queue.dequeue('dog')=="Tiger"
+    assert str(animal_queue)==f"[Lucy] <= [Kitty] <= None"
+
+def test_animal_shelter_dequeue_nothing():
+    animal_queue = AnimalShelter()
+    animal_queue.enqueue(Cat('Lucy'))
+    animal_queue.enqueue(Dog('Husky'))
+    animal_queue.enqueue(Dog('Tiger'))
+    animal_queue.enqueue(Cat('Kitty'))
+    animal_queue.dequeue()
+    assert str(animal_queue)==f"[Lucy] <= [Husky] <= [Tiger] <= [Kitty] <= None"
+
+def test_animal_shelter_dequeue_from_empty_shelter():
+    animal_queue = AnimalShelter()
+    with pytest.raises(Exception, match="Your shelter is empty"):
+        animal_queue.dequeue("cat")
+
+
+
