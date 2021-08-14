@@ -1,6 +1,7 @@
 # Challenge Summary
 <!-- Description of the challenge -->
-Implement a Queue using two Stacks (enqueue and dequeue)
+Implement a Queue using two Stacks
+Methods: enqueue and dequeue
 
 ## Whiteboard Process
 <!-- Embedded whiteboard image -->
