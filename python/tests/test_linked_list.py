@@ -2,6 +2,7 @@ from code_challenges.linked_list_insertions.linked_list_insertions  import *
 
 import pytest
 
+
 """ testing linked list insertions (code ch 6)
     [x]Can successfully add a node to the end of the linked list
     [x] Can successfully add multiple nodes to the end of a linked list
@@ -101,3 +102,36 @@ def test_linked_list_zip_3():
     ll2.insert(6)
     new=linked_list_zip(ll1,ll2)
     assert new==f"(3) -> (6) -> (5) -> (8) -> (7)-> None"
+
+"""
+------------------------------------------
+        code ch 11 tests
+------------------------------------------
+"""
+from code_challenges.stack_queue_pseudo.stack_queue_pseudo import *
+
+def test_q_enqueue_one_element():
+    queue = Pseudo_Queue()
+    queue.enqueue(1)
+    assert str(queue) == f'[{1}] | None'
+
+def test_q_multi_element():
+    queue = Pseudo_Queue()
+    queue.enqueue(1)
+    queue.enqueue(2)
+    queue.enqueue(3)
+    queue.enqueue(4)
+    assert str(queue) == f'[4] | [3] | [2] | [1] | None'
+
+def test_dequeue_one_element():
+    queue = Pseudo_Queue()
+    queue.enqueue(1)
+    queue.enqueue(2)
+    assert 1==queue.dequeue()
+
+def test_dequeue_raise_exception():
+
+    queue = Pseudo_Queue()
+    with pytest.raises(Exception, match="empty queue dequeuing "):
+        queue.dequeue()
+
