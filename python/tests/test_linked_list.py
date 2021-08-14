@@ -1,4 +1,5 @@
 from code_challenges.linked_list_insertions.linked_list_insertions  import *
+
 import pytest
 
 """ testing linked list insertions (code ch 6)
@@ -55,3 +56,48 @@ def test_linked_insert_before_first():
     myll7.insert_before(1,2)
     print(myll7)
     assert str(myll7) == f'(4) -> (3) -> (2) -> (1)-> None'
+
+"""
+------------------------------------------
+        code ch 8 tests
+------------------------------------------
+"""
+from code_challenges.linked_list_zip.linked_list_zip  import *
+
+def test_linked_list_zip_1():
+    ll1 =Linkedlist()
+    ll1.insert(7)
+    ll1.insert(5)
+    ll1.insert(3)
+    ll1.insert(1)
+    ll2=Linkedlist()
+    ll2.insert(8)
+    ll2.insert(6)
+    ll2.insert(4)
+    ll2.insert(2)
+    new=linked_list_zip(ll1,ll2)
+    assert new==f"(1) -> (2) -> (3) -> (4) -> (5) -> (6) -> (7) -> (8)-> None"
+
+def test_linked_list_zip_2():
+    ll1 =Linkedlist()
+    ll1.insert(7)
+    ll1.insert(5)
+    ll1.insert(3)
+    ll2=Linkedlist()
+    ll2.insert(8)
+    ll2.insert(6)
+    ll2.insert(4)
+    ll2.insert(2)
+    new=linked_list_zip(ll1,ll2)
+    assert new==f"(3) -> (2) -> (5) -> (4) -> (7) -> (8)-> None"
+
+def test_linked_list_zip_3():
+    ll1 =Linkedlist()
+    ll1.insert(7)
+    ll1.insert(5)
+    ll1.insert(3)
+    ll2=Linkedlist()
+    ll2.insert(8)
+    ll2.insert(6)
+    new=linked_list_zip(ll1,ll2)
+    assert new==f"(3) -> (6) -> (5) -> (8) -> (7)-> None"
