@@ -2,7 +2,30 @@ from code_challenges.linked_list_insertions.linked_list_insertions  import *
 
 import pytest
 
-""" test for all code challnages are here """
+""" test for all code challnages are here"""
+
+"""
+---------------------------------------------
+ tests for code ch 6 tests => go line 38
+---------------------------------------------
+tests for code ch 8 tests => go line 89
+---------------------------------------------
+tests for code ch 11 tests => go line 134
+---------------------------------------------
+tests for code ch 12 tests => go line 166
+---------------------------------------------
+tests for code ch 13 tests => go line 228
+---------------------------------------------
+tests for code ch 13 tests => go line 261
+---------------------------------------------
+"""
+
+"""
+------------------------------------------
+        code ch 6 tests
+------------------------------------------
+"""
+
 
 """ testing linked list insertions (code ch 6)
     [x]Can successfully add a node to the end of the linked list
@@ -221,4 +244,70 @@ def test_no_brackets():
 
 def test_two_diff_brackets():
     assert not brackets_validator('{]')==True
+
+"""
+------------------------------------------
+        code ch 15 tests
+------------------------------------------
+"""
+""" Write tests to prove the following functionality:
+    Can successfully instantiate an empty tree
+    Can successfully instantiate a tree with a single root node
+    Can successfully add a left child and right child to a single root node
+    Can successfully return a collection from a preorder traversal
+    Can successfully return a collection from an inorder traversal
+    Can successfully return a collection from a postorder traversal """
+
+from code_challenges.trees.trees import *
+
+
+def test_instantiate_empty_tree():
+    assert BinaryTree(Node()).root.value== None
+
+def test_instantiate_a_single_root_node_tree():
+    assert BinaryTree(Node(2)).root.value== 2
+
+def test_add_left_right_child():
+    bt = BinaryTree()
+    bt.root = Node("A")
+    bt.root.right = Node("R")
+    bt.root.left = Node("L")
+    assert bt.root.value=="A"
+    assert bt.root.right.value=="R"
+    assert bt.root.left.value=="L"
+
+def test_instantiate_a_pre_order_tree():
+    bt = BinaryTree()
+    bt.root = Node(2)
+    bt.root.right = Node(5)
+    bt.root.left = Node(7)
+    bt.root.left.left = Node(2)
+    bt.root.left.right = Node(6)
+    bt.root.left.right.left = Node(5)
+    bt.root.left.right.right = Node(11)
+    bt.root.right.right = Node(9)
+    bt.root.right.right.left = Node(4)
+    assert bt.pre_order() == [2, 7, 2, 6, 5, 11, 5, 9, 4]
+
+def test_instantiate_a_post_order_tree():
+    bt = BinaryTree()
+    bt.root = Node(2)
+    bt.root.right = Node(5)
+    bt.root.left = Node(7)
+    bt.root.left.left = Node(2)
+    bt.root.left.right = Node(6)
+    bt.root.left.right.left = Node(5)
+    bt.root.left.right.right = Node(11)
+    bt.root.right.right = Node(9)
+    bt.root.right.right.left = Node(4)
+    assert bt.post_order() == [2, 5, 11, 6, 7, 4, 9, 5, 2]
+
+def test_instantiate_an_in_order_tree():
+    btree=BinaryTree()
+    btree.root=Node(12)
+    btree.root.left=Node(15)
+    btree.root.right=Node(54)
+    btree.root.left.left=Node(55)
+    btree.root.right.right=Node(25)
+    assert btree.in_order() == [55, 15, 12, 54, 25]
 
