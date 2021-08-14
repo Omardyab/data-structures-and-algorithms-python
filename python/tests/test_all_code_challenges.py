@@ -2,6 +2,7 @@ from code_challenges.linked_list_insertions.linked_list_insertions  import *
 
 import pytest
 
+""" test for all code challnages are here """
 
 """ testing linked list insertions (code ch 6)
     [x]Can successfully add a node to the end of the linked list
@@ -11,7 +12,6 @@ import pytest
     [x] Can successfully insert after a node in the middle of the linked list
     [x] Can successfully insert a node after the last node of the linked list
 """
-
 def test_append():
     myll1=Linkedlist()
     myll1.insert(1)
@@ -197,5 +197,28 @@ def test_animal_shelter_dequeue_from_empty_shelter():
     with pytest.raises(Exception, match="Your shelter is empty"):
         animal_queue.dequeue("cat")
 
+"""
+------------------------------------------
+        code ch 13 tests
+------------------------------------------
+"""
+from code_challenges.stack_queue_brackets.stack_queue_brackets import brackets_validator
 
+def test_brackets_match():
+    assert brackets_validator("{}[Omar]{}")==True
+
+def test_brackets_nomatch():
+    assert not brackets_validator('[{linear regression })')==True
+
+def test_only_one_bracket():
+   assert not brackets_validator('[')==True
+
+def test_empty():
+    assert not brackets_validator('')==False
+
+def test_no_brackets():
+    assert brackets_validator('Dario')==True
+
+def test_two_diff_brackets():
+    assert not brackets_validator('{]')==True
 
