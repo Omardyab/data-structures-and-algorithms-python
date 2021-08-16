@@ -3,7 +3,6 @@ class Node:
         self.value = value
         self.left = left
         self.right = right
-
 class BinaryTree:
     def __init__(self, root=None):
         self.root = root
@@ -41,7 +40,9 @@ class BinaryTree:
         inorder(self.root)
         return l
     def max(self):
-        max_value = 0
+        if self.root is None:
+            return None
+        max_value = self.root.value
         tree_nodes = self.in_order()
 
         for i in tree_nodes:
@@ -86,13 +87,13 @@ class Binary_Search_Tree(BinaryTree):
             else:
                 curr_root=curr_root.left
         return False
-    def max_bst(self):
-        main_root = self.root
-        while True:
-            if main_root.right:
-                main_root = main_root.right
-            else:
-                return main_root.value
+    # def max_bst(self):
+    #     main_root = self.root
+    #     while True:
+    #         if main_root.right:
+    #             main_root = main_root.right
+    #         else:
+    #             return main_root.value
 
 if __name__=="__main__":
     """ as taken from TA ahmad since no insert method yet"""
@@ -106,23 +107,23 @@ if __name__=="__main__":
     bt.root.left.right.right = Node(11)
     bt.root.right.right = Node(9)
     bt.root.right.right.left = Node(4)
-    print(bt.pre_order())
-    print(bt.in_order())
-    print(bt.post_order())
-    B_s_tree = Binary_Search_Tree()
-    B_s_tree.add(59)
-    B_s_tree.add(40)
-    B_s_tree.add(98)
-    B_s_tree.add(100)
-    B_s_tree.add(4)
-    B_s_tree.add(56)
-    B_s_tree.add(6)
-    print("doe it contain 13 ? ",B_s_tree.contains(13))
-    print("doe it contain 4 ? ",B_s_tree.contains(4))
-    print("in pre order",B_s_tree.pre_order())
-    print("in order",B_s_tree.in_order())
-    print("in post order",B_s_tree.post_order())
-    print("doe it contain 56 ? ",B_s_tree.contains(56))
-    print("doe it contain 0 ? ",B_s_tree.contains(0))
-    bt=BinaryTree()
-    bt.max()
+    # print(bt.pre_order())
+    # print(bt.in_order())
+    # print(bt.post_order())
+    # B_s_tree = Binary_Search_Tree()
+    # B_s_tree.add(59)
+    # B_s_tree.add(40)
+    # B_s_tree.add(98)
+    # B_s_tree.add(100)
+    # B_s_tree.add(4)
+    # B_s_tree.add(56)
+    # B_s_tree.add(6)
+    # print("doe it contain 13 ? ",B_s_tree.contains(13))
+    # print("doe it contain 4 ? ",B_s_tree.contains(4))
+    # print("in pre order",B_s_tree.pre_order())
+    # print("in order",B_s_tree.in_order())
+    # print("in post order",B_s_tree.post_order())
+    # print("doe it contain 56 ? ",B_s_tree.contains(56))
+    # print("doe it contain 0 ? ",B_s_tree.contains(0))
+    # bt=BinaryTree()
+    print(bt.max())

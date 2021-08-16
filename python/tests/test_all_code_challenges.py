@@ -311,3 +311,43 @@ def test_instantiate_an_in_order_tree():
     btree.root.right.right=Node(25)
     assert btree.in_order() == [55, 15, 12, 54, 25]
 
+
+
+"""
+------------------------------------------
+        code ch 16 tests
+------------------------------------------
+"""
+from code_challenges.trees_max.treesmax import *
+
+def test_max():
+    bt = BinaryTree()
+    bt.root = Node(2)
+    bt.root.right = Node(5)
+    bt.root.left = Node(7)
+    bt.root.left.left = Node(2)
+    bt.root.left.right = Node(6)
+    bt.root.left.right.left = Node(5)
+    bt.root.left.right.right = Node(11)
+    bt.root.right.right = Node(9)
+    bt.root.right.right.left = Node(4)
+    assert bt.max()==11
+
+def test_max_false():
+    bt = BinaryTree()
+    bt.root = Node(2)
+    bt.root.right = Node(5)
+    bt.root.left = Node(7)
+    bt.root.left.left = Node(2)
+    bt.root.left.right = Node(6)
+    bt.root.left.right.left = Node(5)
+    bt.root.left.right.right = Node(11)
+    bt.root.right.right = Node(9)
+    bt.root.right.right.left = Node(4)
+    assert bt.max()!=9
+
+def test_max_none():
+    bt = BinaryTree()
+    assert bt.max() == None
+
+
