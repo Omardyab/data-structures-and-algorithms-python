@@ -16,7 +16,7 @@ tests for code ch 12 tests => go line 166
 ---------------------------------------------
 tests for code ch 13 tests => go line 228
 ---------------------------------------------
-tests for code ch 13 tests => go line 261
+tests for code ch 16 tests => go line 261
 ---------------------------------------------
 """
 
@@ -351,3 +351,9 @@ def test_max_none():
     assert bt.max() == None
 
 
+"""
+------------------------------------------
+        code ch 17 tests
+------------------------------------------
+"""
+# To be added
