@@ -150,14 +150,18 @@ class Queue:
 
 
 def fizz_buzz_tree(tree):
-    if not tree.root:
-        return tree
-    if tree.root.value % 5 == 0 and tree.root.value % 3 == 0:
-        tree.root.value = 'FizzBuzz'
-    elif tree.root.value % 3 == 0:
-        tree.root.value = "Fizz"
-    elif tree.root.value % 5 == 0:
-        tree.root.value = "Buzz"
-    else:
-        tree.root.value = str(tree.root.value)
-    return tree.root.value
+    list=[]
+    queue=Queue
+    while not queue.isEmpty():
+        
+        if not tree.root:
+            return tree
+        if tree.root.value % 15==0:
+            tree.root.value = 'FizzBuzz'
+        elif tree.root.value % 3 == 0:
+            tree.root.value = "Fizz"
+        elif tree.root.value % 5 == 0:
+            tree.root.value = "Buzz"
+        else:
+            tree.root.value = str(tree.root.value)
+        return tree.root.value
