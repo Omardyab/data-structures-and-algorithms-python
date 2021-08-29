@@ -10,10 +10,24 @@ Write a function called breadth first
 ![Whiteboard Process](cc17.jpg)
 ## Approach & Efficiency
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
-time: O(N) space: O(N)
+Time: O(N)
+Space: O(N)
 
 ## Solution
 <!-- Show how to run your code, and examples of it in action -->
 
-    To be added
+    def breadth_first(t):
+    l = []
+    q = Queue()
+    if not t.root:
+        raise Exception("your tree is empty")
+    q.enqueue(t.root)
+    while not q.isEmpty():
+        i = q.dequeue()
+        l.append(i.value)
+        if i.left if hasattr(i, 'left') else None:
+            q.enqueue(i.left)
+        if i.right if hasattr(i, 'right') else None:
+            q.enqueue(i.right)
+    return l
 
