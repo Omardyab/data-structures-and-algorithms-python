@@ -3,7 +3,7 @@
 Conduct “FizzBuzz” on a k-ary tree while traversing through it to create a new tree.
 ## Whiteboard Process
 <!-- Embedded whiteboard image -->
-not added yet
+![whiteboard](cc18.jpg)
 ## Approach & Efficiency
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
  time: O(n) space: O(n)

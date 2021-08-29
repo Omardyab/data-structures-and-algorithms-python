@@ -1,87 +1,11 @@
-"""first => Node => Create a Node class that has properties for the value stored in the Node, and a pointer to the next node"""
-class Node:
-    def __init__(self, value):
-        self.value = value
-        self.next = None
-
-"""Stack
-    Create a Stack class that has a top property. It creates an empty Stack when instantiated.
-    This object should be aware of a default empty value assigned to top when the stack is created."""
-
-class Stack:
-    def __init__(self,node=None):
-        self.top = None
-
-    """The class should contain the following methods:
-        push
-        Arguments: value
-        adds a new node with that value to the top of the stack with an O(1) Time performance."""
-
-    def push(self, value):
-        # preparing my node to be top
-        node = Node(value)
-        # moving top to next
-        if self.top:
-            node.next = self.top
-        # new node on top
-        self.top = node
-    """pop
-        Arguments: none
-        Returns: the value from node from the top of the stack
-        Removes the node from the top of the stack
-        Should raise exception when called on empty stack"""
-    def pop(self):
-        # check if top is none then raise an error
-        if self.top == None:
-            raise AttributeError("Your Stack is empty with value of None")
-        # store  top in a temp value
-        tempvalue = self.top
-        # reassign top to be next on ein the stack
-        self.top = self.top.next
-
-        tempvalue.next=None
-        return tempvalue.value
-    """peek
-        Arguments: none
-        Returns: Value of the node located at the top of the stack
-        Should raise exception when called on empty stack"""
-    def peek(self):
-        # check if top is none then raise an error
-        if self.top == None:
-            raise AttributeError("Your Stack is empty with value of None")
-        # check what is the value of the top of the stack
-        return self.top.value
-
-    """is empty
-        Arguments: none
-        Returns: Boolean indicating whether or not the stack is empty."""
-    def isEmpty(self):
-        # check the value of top if no then return True meaning your stack is empty(not false)
-        return not self.top
-
-    def __str__(self):
-        check=self.top
-        stack_strrep=""
-        if check:
-            while(check):
-                stack_strrep += f"[{ check.value }] | "
-                check = check.next
-        stack_strrep += "None"
-        return (stack_strrep)
-    # def __str__(self):
-    #     stack_str = ""
-    #     if self.top:
-    #         current = self.top
-    #         while(current):
-    #             stack_str += f"{ current.value } | "
-    #             current = current.next
-    #     stack_str += "NULL"
-    #     return (stack_str)
-
 
 """Queue
     Create a Queue class that has a front property. It creates an empty Queue when instantiated.
     This object should be aware of a default empty value assigned to front when the queue is created."""
+class Nodeq:
+    def __init__(self, value=None):
+        self.value = value
+        self.next = None
 class Queue:
     def __init__(self):
         self.front = None
@@ -90,7 +14,7 @@ class Queue:
         Arguments: value
         adds a new node with that value to the back of the queue with an O(1) Time performance."""
     def enqueue(self, value):
-        node = Node(value)
+        node = Nodeq(value)
        # rear node would point to new node and rear would alos be new node
         if self.rear:
             self.rear.next = node
@@ -148,20 +72,81 @@ class Queue:
         return queue_strrep
 
 
+def breadth_first(t):
+    l = []
+    q = Queue()
+    if not t.root:
+        raise Exception("your tree is empty")
+    q.enqueue(t.root)
+    while not q.isEmpty():
+        i = q.dequeue()
+        l.append(i.value)
+        if i.left if hasattr(i, 'left') else None:
+            q.enqueue(i.left)
+        if i.right if hasattr(i, 'right') else None:
+            q.enqueue(i.right)
+    return l
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.child = []
 
-def fizz_buzz_tree(tree):
-    list=[]
-    queue=Queue
-    while not queue.isEmpty():
-        
-        if not tree.root:
-            return tree
-        if tree.root.value % 15==0:
-            tree.root.value = 'FizzBuzz'
-        elif tree.root.value % 3 == 0:
-            tree.root.value = "Fizz"
-        elif tree.root.value % 5 == 0:
-            tree.root.value = "Buzz"
-        else:
-            tree.root.value = str(tree.root.value)
-        return tree.root.value
+class Tree:
+    def __init__(self, root=None):
+        self.root = root
+
+def fizz_buzz_tree(t):
+    n_tree = t
+    if not t.root:
+        return t
+    if n_tree.root.value % 15==0:
+        n_tree.root.value = 'FizzBuzz'
+    elif n_tree.root.value % 5 == 0:
+        n_tree.root.value = "Buzz"
+    elif n_tree.root.value % 3 == 0:
+        n_tree.root.value = "Fizz"
+    else:
+        # convert the node value to string
+        n_tree.root.value = str(n_tree.root.value)
+    def rec_func(node):
+        if node.child:
+            # print("is working")
+            for i in range(len(node.child)):
+                rec_func(node.child[i])
+                if node.child[i].value % 15==0:
+                    node.child[i].value = 'FizzBuzz'
+                elif node.child[i].value % 3 == 0:
+                    node.child[i].value = "Fizz"
+                elif node.child[i].value % 5 == 0:
+                    node.child[i].value = "Buzz"
+                else:
+                    # convert the node value to string
+                    node.child[i].value = str(node.child[i].value)
+    rec_func(n_tree.root)
+    
+    return n_tree
+
+
+if __name__ == "__main__":
+    node = Node(5)
+    node.child += [Node(15)]
+    node.child += [Node(40)]
+    node.child[0].child += [Node(30)]
+    node.child[0].child += [Node(60)]
+    node.child[1].child += [Node(5)]
+    node.child[1].child += [Node(5)]
+    node.child[0].child[1].child += [Node(6)]
+    node.child[0].child[1].child += [Node(10)]
+    node.child[0].child[1].child += [Node(18)]
+    node.child[0].child[1].child += [Node(15)]
+    node.child[1].child[1].child += [Node(30)]
+    t = Tree(node)
+    fizzy=fizz_buzz_tree(t)
+    print(breadth_first(fizzy))
+
+
+
+
+
+
+
