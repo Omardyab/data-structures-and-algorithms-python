@@ -14,3 +14,4 @@ if __name__ == "__main__":
     print(insertion_sort([8,0,29,82,6,30]))
     print(insertion_sort([8,4,23,42,16,15]))
 
+
