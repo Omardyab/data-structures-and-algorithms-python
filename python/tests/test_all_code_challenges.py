@@ -351,7 +351,7 @@ def test_max_none():
     assert bt.max() == None
 
 
-"""
+
 ------------------------------------------
         code ch 18 tests
 ------------------------------------------
@@ -385,4 +385,5 @@ def test_max_none():
 # def test_fizz_buzz_empty_tree():
 #     k_tree = Tree()
 #     assert breadth_first(fizz_buzz_tree(k_tree)) == breadth_first(k_tree)
+
 
