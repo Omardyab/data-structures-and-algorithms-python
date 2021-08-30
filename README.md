@@ -21,3 +21,21 @@ To run your tests
 ### 401 Data Structures, Code Challenges
 
 - Please follow the instructions specific to your 401 language, which can be found in the directory below, matching your course.
+
+# Table of content
+
+|Code Challenge  | LINK                          |
+|----------------|-------------------------------|
+|Array reverse   | [cc1](python/code_challenges/array-reverse/readme.md)|
+|linked list insertions|[cc2](python/code_challenges/linked_list_insertions/readme.md)|
+|linked list zip|[cc3](python/code_challenges/linked_list_zip/readme.md)|
+|stack queue pseudo|[cc4](python/code_challenges/stack_queue_pseudo/readme.md)|
+|stack queue animal shelter|[cc5](python/code_challenges/stack_queue_animal_shelter/readme.md)|
+|stack queue brackets|[cc6](python/code_challenges/stack_queue_brackets/readme.md)|
+|Trees|[cc7](python/code_challenges/trees/readme.md)|
+
+
+
+
+
+
