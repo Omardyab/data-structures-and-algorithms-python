@@ -1,4 +1,6 @@
+
 import copy
+
 """Queue
     Create a Queue class that has a front property. It creates an empty Queue when instantiated.
     This object should be aware of a default empty value assigned to front when the queue is created."""
@@ -71,6 +73,87 @@ class Queue:
         queue_strrep += "None"
         return queue_strrep
 
+
+
+def breadth_first(t):
+    l = []
+    q = Queue()
+    if not t.root:
+        raise Exception("your tree is empty")
+    q.enqueue(t.root)
+    while not q.isEmpty():
+        i = q.dequeue()
+        l.append(i.value)
+        if i.left if hasattr(i, 'left') else None:
+            q.enqueue(i.left)
+        if i.right if hasattr(i, 'right') else None:
+            q.enqueue(i.right)
+    return l
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.child = []
+
+class Tree:
+    def __init__(self, root=None):
+        self.root = root
+
+def fizz_buzz_tree(t):
+    n_tree = t
+    if not t.root:
+        return t
+    if n_tree.root.value % 15==0:
+        n_tree.root.value = 'FizzBuzz'
+    elif n_tree.root.value % 5 == 0:
+        n_tree.root.value = "Buzz"
+    elif n_tree.root.value % 3 == 0:
+        n_tree.root.value = "Fizz"
+    else:
+        # convert the node value to string
+        n_tree.root.value = str(n_tree.root.value)
+    def rec_func(node):
+        if node.child:
+            # print("is working")
+            for i in range(len(node.child)):
+                rec_func(node.child[i])
+                if node.child[i].value % 15==0:
+                    node.child[i].value = 'FizzBuzz'
+                elif node.child[i].value % 3 == 0:
+                    node.child[i].value = "Fizz"
+                elif node.child[i].value % 5 == 0:
+                    node.child[i].value = "Buzz"
+                else:
+                    # convert the node value to string
+                    node.child[i].value = str(node.child[i].value)
+    rec_func(n_tree.root)
+    
+    return n_tree
+
+
+if __name__ == "__main__":
+    node = Node(5)
+    node.child += [Node(15)]
+    node.child += [Node(40)]
+    node.child[0].child += [Node(30)]
+    node.child[0].child += [Node(60)]
+    node.child[1].child += [Node(5)]
+    node.child[1].child += [Node(5)]
+    node.child[0].child[1].child += [Node(6)]
+    node.child[0].child[1].child += [Node(10)]
+    node.child[0].child[1].child += [Node(18)]
+    node.child[0].child[1].child += [Node(15)]
+    node.child[1].child[1].child += [Node(30)]
+    t = Tree(node)
+    fizzy=fizz_buzz_tree(t)
+    print(breadth_first(fizzy))
+
+
+
+
+
+
+
+
 class Node:
     def __init__( self, value ):
         self.value = value
@@ -133,3 +216,4 @@ if __name__ == "__main__":
     print(k_tree)
     copied_k_tree=k_tree_fizz_buzz(k_tree)
     print(copied_k_tree)
+
