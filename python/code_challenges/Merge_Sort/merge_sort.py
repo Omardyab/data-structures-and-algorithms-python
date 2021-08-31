@@ -19,15 +19,14 @@ def merge(L,R,unsorted_list):
             unsorted_list[k] = R[j]
             j += 1
         k += 1
-        if i == len(L):
-            for num in R[j:]:
-                unsorted_list[j] = num
-                j += 1
-        else:
-            for num in L[i:]:
-                unsorted_list[j] = num
-                j += 1
-
+    if i == len(L):
+        for num in R[j:]:
+            unsorted_list[k] = num
+            k += 1
+    else:
+        for num in L[i:]:
+            unsorted_list[k] = num
+            k += 1
 
 mylist=[20, 18, 12, 8, 5, -2]
 merge_sort(mylist)
