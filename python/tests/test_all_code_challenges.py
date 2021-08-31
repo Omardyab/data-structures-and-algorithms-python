@@ -311,8 +311,6 @@ def test_instantiate_an_in_order_tree():
     btree.root.right.right=Node(25)
     assert btree.in_order() == [55, 15, 12, 54, 25]
 
-
-
 """
 ------------------------------------------
         code ch 16 tests
@@ -349,5 +347,6 @@ def test_max_false():
 def test_max_none():
     bt = BinaryTree()
     assert bt.max() == None
+
 
 
