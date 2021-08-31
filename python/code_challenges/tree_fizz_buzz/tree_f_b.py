@@ -1,4 +1,6 @@
 
+import copy
+
 """Queue
     Create a Queue class that has a front property. It creates an empty Queue when instantiated.
     This object should be aware of a default empty value assigned to front when the queue is created."""
@@ -70,6 +72,7 @@ class Queue:
                 check = check.next
         queue_strrep += "None"
         return queue_strrep
+
 
 
 def breadth_first(t):
@@ -149,4 +152,68 @@ if __name__ == "__main__":
 
 
 
+
+
+class Node:
+    def __init__( self, value ):
+        self.value = value
+        self.children = []
+
+class k_tree:
+    def __init__( self ):
+        self.root = None
+
+    def __str__( self ):
+        if self.root:
+            result = [self.root.value]
+            for child in self.root.children:
+                result += [child.value]
+            result = str(result)
+            return result
+
+        else:
+            raise Exception("K array tree is empty")
+
+
+def k_tree_fizz_buzz( k_tree ):
+
+    copied_ktree = copy.deepcopy(k_tree)
+    root = copied_ktree.root
+    queues = Queue()
+    if not root :
+        raise Exception("K array tree is empty")
+    def fizz_buzz(node):
+        if node % 15==0:
+            return ('FizzBuzz')
+        elif node % 3 == 0:
+            return ('Fizz')
+        elif node % 5 == 0:
+            return ('Buzz')
+        else:
+            return str(node)
+# check each child and call fizz buzz
+    if root :
+        queues.enqueue( root )
+    while not queues.isEmpty():
+        nodes = queues.dequeue()
+        nodes.value = fizz_buzz(nodes.value)
+        for child in nodes.children:
+            queues.enqueue( child )
+    return copied_ktree
+
+if __name__ == "__main__":
+    k_tree=k_tree()
+    k_tree.root = Node(2)
+    k_tree.root = Node(2)
+    k_tree.root.children += [Node(7)]
+    k_tree.root.children += [Node(5)]
+    k_tree.root.children += [Node(2)]
+    k_tree.root.children += [Node(6)]
+    k_tree.root.children += [Node(9)]
+    k_tree.root.children += [Node(5)]
+    k_tree.root.children += [Node(11)]
+    k_tree.root.children += [Node(15)]
+    print(k_tree)
+    copied_k_tree=k_tree_fizz_buzz(k_tree)
+    print(copied_k_tree)
 
