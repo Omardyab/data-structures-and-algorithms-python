@@ -7,11 +7,9 @@ Write a function take a unsorted list and return sorted list by implementing mar
 
     Input => list
     0utput => Sorted list.
-
 ## Pseudocode
 ALGORITHM Mergesort(arr)
     DECLARE n <-- arr.length
-
     if n > 1
       DECLARE mid <-- n/2
       DECLARE left <-- arr[0...mid]
@@ -51,7 +49,6 @@ ALGORITHM Merge(left, right, arr)
     Call mergeSort for second half.
 
     Merge the two halves sorted in step 2 and 3 using merge_sort function
-
 
 ## Trace (Visual):
 
