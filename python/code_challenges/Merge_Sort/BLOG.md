@@ -50,11 +50,11 @@ ALGORITHM Merge(left, right, arr)
 
     Call mergeSort for second half.
 
-    Merge the two halves sorted in step 2 and 3 using merge_sort function 
+    Merge the two halves sorted in step 2 and 3 using merge_sort function
 
 
 ## Trace (Visual):
 
 Trace this list: [8,4,23,42,16,15]
-![Trace Process](v1.jpg)
+![Trace Process](cc27v1.jpg)
 

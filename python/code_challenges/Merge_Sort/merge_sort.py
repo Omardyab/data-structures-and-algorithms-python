@@ -5,6 +5,8 @@ def merge_sort(unsorted_list):
         mid = len(unsorted_list)//2
         L = unsorted_list[:mid]
         R = unsorted_list[mid:]
+        print(L)
+        print(R)
         merge_sort(L)
         merge_sort(R)
         merge(L,R,unsorted_list)
