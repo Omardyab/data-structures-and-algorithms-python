@@ -3,6 +3,7 @@ Quicksort is a divide-and-conquer algorithm. It works by selecting a 'pivot' ele
 
 ## Problem Domain:
 
+Write a function take a unsorted list and return sorted list by using quick sort algorithm
 ## Pseudocode
         ALGORITHM QuickSort(arr, left, right)
     if left < right
@@ -35,9 +36,8 @@ Quicksort is a divide-and-conquer algorithm. It works by selecting a 'pivot' ele
 
 ## Algorithm (Ascending order)
 
-
 ## Trace (Visual):
 
 Trace this list: [8,4,23,42,16,15]
-![Trace Process](cc27v1.jpg)
+![Trace Process](cc28v1.jpg)
 
