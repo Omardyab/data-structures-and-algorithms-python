@@ -39,5 +39,6 @@ Write a function take a unsorted list and return sorted list by using quick sort
 ## Trace (Visual):
 
 Trace this list: [8,4,23,42,16,15]
-![Trace Process](cc28v1.jpg)
+![Trace Process](qsv.png)
+
 
