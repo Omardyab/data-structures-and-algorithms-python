@@ -1,6 +1,6 @@
 # Hashtables
 <!-- Short summary or background information -->
-
+Hashtables are a data structure that utilize key value pairs. This means every Node or Bucket has both a key, and a value.
 ## Challenge
 <!-- Description of the challenge -->
 
