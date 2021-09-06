@@ -97,3 +97,47 @@ class Linkedlist:
                 head_node.next.next=next_head
                 break
             head_node=head_node.next
+
+class HashTable :
+
+    def __init__(self, size = 1024):
+        self.size = size
+        self._buckets = [None]*size
+
+    def hash(self, key):
+        sum= 0
+        for char in key:
+            sum += ord(char)
+        hashed_key  = (sum * 19) % self.size
+        return hashed_key
+
+    def add(self,key,value):
+        idx = self.hash(key)
+        if self._buckets[idx] == None:
+            self._buckets[idx] = Linkedlist()
+        self._buckets[idx].append([key,value])
+
+    def get(self,key):
+        idx = self.hash(key)
+        if self._buckets[idx] == None:
+            return None
+        else:
+            curr=self._buckets[idx].head
+            while curr:
+                if curr.value[0] == key:
+                    return curr.value[1]
+                curr = curr.next
+
+    def contains(self,key):
+        idx=self.hash(key)
+        if self._buckets[idx]:
+            return self._buckets[idx].includes(key)
+        else:
+            return False
+
+if __name__=='__main__':
+    hash=HashTable()
+    print(hash.hash('omar'))
+    hash.add('Omar',"leader")
+    print(hash.get('Omar'))
+
